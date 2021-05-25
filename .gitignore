@@ -1,2 +1,5 @@
 Data/prepared_data.csv
 Data/Radar_Traffic_Counts.csv
+.idea
+__pycache__/
+*.py[cod]
