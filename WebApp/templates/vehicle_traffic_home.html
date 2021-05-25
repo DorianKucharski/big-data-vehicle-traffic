@@ -1,0 +1,94 @@
+{% extends 'vehicle_traffic.html' %}
+
+{% block content %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Dashboard</h1>
+</div>
+
+<h1 class="h2 text-center">Podsumowanie</h1>
+<div class="row row-cols-1 row-cols-md-2 mb-2 text-center">
+    <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+            <div class="card-header py-3">
+                <h4 class="my-0 fw-normal">
+                    Ilość pomiarów
+                </h4>
+            </div>
+            <div class="card-body">
+                {{measurements}}
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+            <div class="card-header py-3">
+                <h4 class="my-0 fw-normal">
+                    Ilość wpisów w bazie danych
+                </h4>
+            </div>
+            <div class="card-body">
+                {{entries}}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<h1 class="h2 text-center">Dzisiaj</h1>
+<div class="row row-cols-1 row-cols-md-2 mb-2 text-center">
+    <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+            <div class="card-header py-3">
+                <h4 class="my-0 fw-normal">
+                    Samochodów wjeżdżających
+                </h4>
+            </div>
+            <div class="card-body">
+                {{today_cars_in}}
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+            <div class="card-header py-3">
+                <h4 class="my-0 fw-normal">
+                    Samochodów wyjeżdżających
+                </h4>
+            </div>
+            <div class="card-body">
+                {{today_cars_out}}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<h1 class="h2 text-center">W ciągu ostatnich 15 minut</h1>
+<div class="row row-cols-1 row-cols-md-2 mb-2 text-center">
+    <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+            <div class="card-header py-3">
+                <h4 class="my-0 fw-normal">
+                    Samochodów wjeżdżających
+                </h4>
+            </div>
+            <div class="card-body">
+                {{15_minutes_cars_in}}
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+            <div class="card-header py-3">
+                <h4 class="my-0 fw-normal">
+                    Samochodów wyjeżdżających
+                </h4>
+            </div>
+            <div class="card-body">
+                {{15_minutes_cars_out}}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

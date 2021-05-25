@@ -1,0 +1,32 @@
+{% extends 'vehicle_traffic.html' %}
+
+{% block content %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Kamera</h1>
+</div>
+
+   <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <video id="video" height="50%" controls></video>
+    <script>
+    if(Hls.isSupported())
+    {
+        var video = document.getElementById('video');
+        var hls = new Hls();
+        hls.loadSource('http://kamery.tvbraniewo24.pl:5080/LiveApp/streams/853734119073868618727613.m3u8');
+        hls.attachMedia(video);
+        hls.on(Hls.Events.MANIFEST_PARSED,function()
+        {
+            video.play();
+        });
+    }
+    else if (video.canPlayType('application/vnd.apple.mpegurl'))
+    {
+        video.src = 'http://kamery.tvbraniewo24.pl:5080/LiveApp/streams/853734119073868618727613.m3u8';
+        video.addEventListener('canplay',function()
+        {
+            video.play();
+        });
+    }
+    </script>
+
+{% endblock %}

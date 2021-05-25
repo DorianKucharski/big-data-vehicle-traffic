@@ -1,0 +1,72 @@
+{% extends 'vehicle_traffic.html' %}
+
+{% block content %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Dane w czasie rzeczywistym</h1>
+</div>
+
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Czas</th>
+        <th scope="col">Kierunek</th>
+    </tr>
+    </thead>
+    <tbody id="myTable">
+
+    </tbody>
+</table>
+
+
+<script>
+    const table = document.getElementById("myTable");
+    let lastTimestamp = 0
+
+
+    function addToTable(time, direction) {
+        const row = table.insertRow();
+        const cell0 = row.insertCell(0);
+        const cell1 = row.insertCell(1);
+        const cell2 = row.insertCell(2);
+        cell0.innerHTML = table.rows.length.toString();
+        cell1.innerHTML = time;
+        cell2.innerHTML = direction;
+    }
+
+
+    function startShowingMessage(url) {
+        setInterval(async function () {
+            const response = await fetch("/api/real_time");
+            let data = await response.json();
+            let timestamp = parseInt(data["timestamp"])
+            if (lastTimestamp !== timestamp) {
+                lastTimestamp = timestamp;
+
+                const date = new Date(parseInt(data["timestamp"]) * 1000);
+                const hours = date.getHours();
+                const minutes = "0" + date.getMinutes();
+                const seconds = "0" + date.getSeconds();
+                const formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+
+                let direction;
+
+                if (data["direction"] === "in"){
+                    direction = "Wjechał";
+                } else {
+                    direction = "Wyjechał";
+                }
+
+
+                addToTable(formattedTime, direction);
+            }
+
+        }, 1000);
+    }
+
+
+    startShowingMessage("/api/real_time")
+</script>
+
+{% endblock %}

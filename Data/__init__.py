@@ -1,0 +1,3 @@
+"""
+    Generowanie danych
+"""

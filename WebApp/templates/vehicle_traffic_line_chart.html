@@ -1,0 +1,56 @@
+{% extends 'vehicle_traffic.html' %}
+
+{% block content %}
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">Wykres liniowy</h1>
+            </div>
+<div id="demo" style="height: 700px"></div>
+
+<script>
+    chart = new TimeChart({
+        "series": [
+            {
+                "name": "Cars in",
+                "data": {
+                    "index": 1,
+                    "aggregation": "sum"
+                },
+                "style": {
+                    "lineColor": "#b0dc0b"
+                },
+                "type": "line"
+            },
+            {
+                "name": "Cars out",
+                "data": {
+                    "index": 2,
+                    "aggregation": "sum"
+                },
+                "style": {
+                    "lineColor": "#eab404"
+                },
+                "type": "line"
+            }
+        ],
+        "container": "demo",
+        "data": [
+            {
+                "units": [
+                    "m"
+                ],
+                timestampInSeconds: true,
+                "url": "/api/get_all"
+            }
+        ],
+        "toolbar": {
+            "fullscreen": true,
+            "enabled": true
+        },
+        "interaction": {
+            "resizing": {
+                "enabled": true
+            }
+        }
+    })
+</script>
+{% endblock %}

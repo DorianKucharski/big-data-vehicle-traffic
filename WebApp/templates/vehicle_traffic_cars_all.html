@@ -1,0 +1,61 @@
+{% extends 'vehicle_traffic.html' %}
+
+{% block content %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Samochody łącznie</h1>
+</div>
+
+
+<div id="demo" style="height: 700px"></div>
+
+<script>
+    chart = new TimeChart({
+        "series": [
+            {
+                "name": "Ilość wjeżdżających",
+                "data": {
+                    "index": 1,
+                    "aggregation": "sum"
+                },
+                "style": {
+                    "fillColor": "#2fc32f"
+                },
+                "stack": "default",
+                "type": "columns"
+            },
+            {
+                "name": "Ilość wyjeżdżających",
+                "data": {
+                    "index": 2,
+                    "aggregation": "sum"
+                },
+                "style": {
+                    "fillColor": "#b0dc0b"
+                },
+                "stack": "default",
+                "type": "columns"
+            }
+        ],
+        "container": "demo",
+        "data": [
+            {
+                "units": [
+                    "d"
+                ],
+                timestampInSeconds: true,
+                "url": "/api/get_all"
+            }
+        ],
+        "toolbar": {
+            "fullscreen": true,
+            "enabled": true
+        },
+        "interaction": {
+            "resizing": {
+                "enabled": false
+            }
+        }
+    })
+</script>
+
+{% endblock %}

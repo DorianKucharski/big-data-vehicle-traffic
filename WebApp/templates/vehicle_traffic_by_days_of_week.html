@@ -1,0 +1,55 @@
+{% extends 'vehicle_traffic.html' %}
+
+{% block content %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Natężenie według dni tygodnia</h1>
+</div>
+
+<div id="demo" style="height: 700px"></div>
+<script>
+    chart = new FacetChart({
+        "series": [
+            {
+                "name": "Samochody wjeżdżające",
+                "data": {
+                    "field": "in",
+                    "aggregation": "sum"
+                },
+                "style": {
+                    "fillColor": "#2fc32f"
+                },
+                "type": "columns",
+                "stack": "default"
+            },
+
+            {
+                "name": "Samochody wyjeżdżające",
+                "data": {
+                    "field": "out",
+                    "aggregation": "sum"
+                },
+                "style": {
+                    "fillColor": "#b0dc0b"
+                },
+                "type": "columns",
+                "stack": "default"
+            }
+        ],
+        "container": "demo",
+        "data": [
+            {
+                "url": "/api/by_days_of_week"
+            }
+        ],
+        "toolbar": {
+            "fullscreen": true,
+            "enabled": true
+        },
+        "interaction": {
+            "resizing": {
+                "enabled": false
+            }
+        }
+    })
+</script>
+{% endblock %}
