@@ -60,8 +60,11 @@ if __name__ == '__main__':
     df["Year"].replace([2018], 2020, inplace=True)
 
     # Generowanie i laczenie danych
-    df2 = generate_year(df, 2019)
-    df = pandas.concat([df, df2])
+    years = [df]
+    for i in range(8):
+        years.append(generate_year(df, 2020 - (i + 1)))
+
+    df = pandas.concat(years)
 
     # Utworzenie kolumny datatime na podstawie innych kolumn okreslajacych czas
     df['Datetime'] = pandas.to_datetime(df[['Year', 'Month', 'Day', 'Hour', 'Minute']])
