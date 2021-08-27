@@ -20,6 +20,7 @@ At the end Django web app process, agregates and shows all statisctics with use 
 - Javascript
 - REST API
 - AWS
+- Bootstrap
 
 
 ### Preview
