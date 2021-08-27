@@ -6,6 +6,7 @@ import random
 import pandas
 
 
+
 def generate_year(df_tmp: pandas.DataFrame, year: int) -> pandas.DataFrame:
     """
         Generuje dane na zadany rok, posługując się przekazanymi danymi w obiekcie DataFrame. Generowanie obdywa się poprzez

@@ -52,7 +52,7 @@ direction = &#34;&#34;
 
 def get_mongo_collection() -&gt; pymongo.collection:
     &#34;&#34;&#34;
-        Metoda pomocnicza. Nawiązuje połączenie z bazą danych MongoDB i zwraca obiekt kolekcji w której znajdują się
+        Funkcja pomocnicza. Nawiązuje połączenie z bazą danych MongoDB i zwraca obiekt kolekcji w której znajdują się
         dane.
 
         Returns
@@ -69,7 +69,7 @@ def get_mongo_collection() -&gt; pymongo.collection:
 
 def get_mongo_data() -&gt; list:
     &#34;&#34;&#34;
-        Metoda pomocnicza. Zwraca dane z kolekcji MongoDB w postaci listy list, gdzie każda zagnieżdżona lista
+        Funkcja pomocnicza. Zwraca dane z kolekcji MongoDB w postaci listy list, gdzie każda zagnieżdżona lista
         reprezentuje dane w postaci [TIMESTAMP, LICZBA_SAMOCHODÓW_WJEŻDŻAJĄCYCH, LICZBA_SAMOCHODÓW_WYJEŻDŻAJĄCYCH].
         Dane przefiltorowane są pod kątem czasu, tak by w wynikowych danych nie znalazły się wpisy odnoszące się
         do przyszłości.
@@ -89,7 +89,7 @@ def get_mongo_data() -&gt; list:
 
 def get_by(by_what: str, names: list) -&gt; dict:
     &#34;&#34;&#34;
-        Metoda pomocnicza. Agreguje dane na podstawie parametru &#34;by_what&#34; powiązując wyniki z przekazanymi przez
+        Funkcja pomocnicza. Agreguje dane na podstawie parametru &#34;by_what&#34; powiązując wyniki z przekazanymi przez
         &#34;names&#34; nazwami.
 
         Parameters
@@ -497,7 +497,7 @@ def real_time(request: WSGIRequest) -&gt; JsonResponse:
 <span>def <span class="ident">get_by</span></span>(<span>by_what: str, names: list) ‑> dict</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Metoda pomocnicza. Agreguje dane na podstawie parametru "by_what" powiązując wyniki z przekazanymi przez
+<div class="desc"><p>Funkcja pomocnicza. Agreguje dane na podstawie parametru "by_what" powiązując wyniki z przekazanymi przez
 "names" nazwami.</p>
 <h2 id="parameters">Parameters</h2>
 <dl>
@@ -519,7 +519,7 @@ w postaci [NAZWA_PRZEDZIAŁU_CZASOWEGO, SAMOCHODY_WJEŻDŻAJĄCE, SAMOCHODY_WYJE
 </summary>
 <pre><code class="python">def get_by(by_what: str, names: list) -&gt; dict:
     &#34;&#34;&#34;
-        Metoda pomocnicza. Agreguje dane na podstawie parametru &#34;by_what&#34; powiązując wyniki z przekazanymi przez
+        Funkcja pomocnicza. Agreguje dane na podstawie parametru &#34;by_what&#34; powiązując wyniki z przekazanymi przez
         &#34;names&#34; nazwami.
 
         Parameters
@@ -567,7 +567,7 @@ w postaci [NAZWA_PRZEDZIAŁU_CZASOWEGO, SAMOCHODY_WJEŻDŻAJĄCE, SAMOCHODY_WYJE
 <span>def <span class="ident">get_mongo_collection</span></span>(<span>) ‑> <module 'pymongo.collection' from 'D:\\Programy\\Python\\Python39\\lib\\site-packages\\pymongo\\collection.py'></span>
 </code></dt>
 <dd>
-<div class="desc"><p>Metoda pomocnicza. Nawiązuje połączenie z bazą danych MongoDB i zwraca obiekt kolekcji w której znajdują się
+<div class="desc"><p>Funkcja pomocnicza. Nawiązuje połączenie z bazą danych MongoDB i zwraca obiekt kolekcji w której znajdują się
 dane.</p>
 <h2 id="returns">Returns</h2>
 <dl>
@@ -580,7 +580,7 @@ dane.</p>
 </summary>
 <pre><code class="python">def get_mongo_collection() -&gt; pymongo.collection:
     &#34;&#34;&#34;
-        Metoda pomocnicza. Nawiązuje połączenie z bazą danych MongoDB i zwraca obiekt kolekcji w której znajdują się
+        Funkcja pomocnicza. Nawiązuje połączenie z bazą danych MongoDB i zwraca obiekt kolekcji w której znajdują się
         dane.
 
         Returns
@@ -599,7 +599,7 @@ dane.</p>
 <span>def <span class="ident">get_mongo_data</span></span>(<span>) ‑> list</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Metoda pomocnicza. Zwraca dane z kolekcji MongoDB w postaci listy list, gdzie każda zagnieżdżona lista
+<div class="desc"><p>Funkcja pomocnicza. Zwraca dane z kolekcji MongoDB w postaci listy list, gdzie każda zagnieżdżona lista
 reprezentuje dane w postaci [TIMESTAMP, LICZBA_SAMOCHODÓW_WJEŻDŻAJĄCYCH, LICZBA_SAMOCHODÓW_WYJEŻDŻAJĄCYCH].
 Dane przefiltorowane są pod kątem czasu, tak by w wynikowych danych nie znalazły się wpisy odnoszące się
 do przyszłości.</p>
@@ -614,7 +614,7 @@ do przyszłości.</p>
 </summary>
 <pre><code class="python">def get_mongo_data() -&gt; list:
     &#34;&#34;&#34;
-        Metoda pomocnicza. Zwraca dane z kolekcji MongoDB w postaci listy list, gdzie każda zagnieżdżona lista
+        Funkcja pomocnicza. Zwraca dane z kolekcji MongoDB w postaci listy list, gdzie każda zagnieżdżona lista
         reprezentuje dane w postaci [TIMESTAMP, LICZBA_SAMOCHODÓW_WJEŻDŻAJĄCYCH, LICZBA_SAMOCHODÓW_WYJEŻDŻAJĄCYCH].
         Dane przefiltorowane są pod kątem czasu, tak by w wynikowych danych nie znalazły się wpisy odnoszące się
         do przyszłości.

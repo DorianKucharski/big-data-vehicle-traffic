@@ -3,3 +3,4 @@ Data/Radar_Traffic_Counts.csv
 .idea
 __pycache__/
 *.py[cod]
+/Images

@@ -19,7 +19,7 @@ direction = ""
 
 def get_mongo_collection() -> pymongo.collection:
     """
-        Metoda pomocnicza. Nawiązuje połączenie z bazą danych MongoDB i zwraca obiekt kolekcji w której znajdują się
+        Funkcja pomocnicza. Nawiązuje połączenie z bazą danych MongoDB i zwraca obiekt kolekcji w której znajdują się
         dane.
 
         Returns
@@ -36,7 +36,7 @@ def get_mongo_collection() -> pymongo.collection:
 
 def get_mongo_data() -> list:
     """
-        Metoda pomocnicza. Zwraca dane z kolekcji MongoDB w postaci listy list, gdzie każda zagnieżdżona lista
+        Funkcja pomocnicza. Zwraca dane z kolekcji MongoDB w postaci listy list, gdzie każda zagnieżdżona lista
         reprezentuje dane w postaci [TIMESTAMP, LICZBA_SAMOCHODÓW_WJEŻDŻAJĄCYCH, LICZBA_SAMOCHODÓW_WYJEŻDŻAJĄCYCH].
         Dane przefiltorowane są pod kątem czasu, tak by w wynikowych danych nie znalazły się wpisy odnoszące się
         do przyszłości.
@@ -56,7 +56,7 @@ def get_mongo_data() -> list:
 
 def get_by(by_what: str, names: list) -> dict:
     """
-        Metoda pomocnicza. Agreguje dane na podstawie parametru "by_what" powiązując wyniki z przekazanymi przez
+        Funkcja pomocnicza. Agreguje dane na podstawie parametru "by_what" powiązując wyniki z przekazanymi przez
         "names" nazwami.
 
         Parameters

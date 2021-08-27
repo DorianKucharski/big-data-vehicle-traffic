@@ -1,5 +1,5 @@
 """
-    Widoki stron. Metody zwracają odpowiednie do url szablony stron.
+    Widoki stron. Funkcje zwracają odpowiednie do url szablony stron.
 """
 
 from django.shortcuts import render
